@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {Text, View, Image, StyleSheet, ImageBackground} from 'react-native';
 
 const LetterToWord = (props) => {
+  // console.log(props.word);
   const [guesses, setGuesses] = useState(props.guesses);
   const getWordSlot = (letter, i) => {
     let contents = props.guesses.includes(letter) ? letter : ' ';
@@ -50,12 +51,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderBottomWidth: 2,
-    marginLeft: 3,
-    marginRight: 3,
+    marginLeft: 2,
+    marginRight: 2,
     color: 'green',
   },
   letter: {
-    fontSize: 30,
+    fontSize: 23,
   },
   dashes: {
     flex: 1,

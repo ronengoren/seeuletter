@@ -21,13 +21,42 @@ AdMobInterstitial.setAdUnitID('ca-app-pub-5713671504596281/4036577035');
 // Css
 const getRandomValue = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
+const makeExample = (name, getJson) => ({name, getJson});
+const SCORE_ANIMATIONS = [
+  makeExample('1', () =>
+    require('../../assets/animations/scoreAnimation/1.json'),
+  ),
+  makeExample('2', () =>
+    require('../../assets/animations/scoreAnimation/2.json'),
+  ),
+  makeExample('3', () =>
+    require('../../assets/animations/scoreAnimation/3.json'),
+  ),
+  makeExample('4', () =>
+    require('../../assets/animations/scoreAnimation/4.json'),
+  ),
+  makeExample('5', () =>
+    require('../../assets/animations/scoreAnimation/5.json'),
+  ),
+  makeExample('6', () =>
+    require('../../assets/animations/scoreAnimation/6.json'),
+  ),
+  makeExample('10', () =>
+    require('../../assets/animations/scoreAnimation/10.json'),
+  ),
+];
 const Hangman = (props, navigation) => {
   const [word, setWord] = useState([]);
   const [wrongGuesses, setWrongGuesses] = useState(new List());
   const [guesses, setGuesses] = useState(new List());
+  const [score, setScore] = useState(6);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [winModalVisible, setWinmodalVisible] = useState(false);
+  const [animations, setAnimations] = useState(SCORE_ANIMATIONS[0]);
+  // console.log(animations.getJson());
   useEffect(() => {
     setWord(props.word);
-  }, [props]);
+  });
 
   const getHangingMan = () => {
     const images = {
@@ -65,6 +94,7 @@ const Hangman = (props, navigation) => {
   };
 
   const restartGame = () => {
+    setWinmodalVisible(false);
     setWrongGuesses(new List());
     setGuesses(new List());
     props.restartGame();
@@ -81,6 +111,10 @@ const Hangman = (props, navigation) => {
 
       wrongGuessesArr = wrongGuesses.push(letter);
       wrongAnswer(wrongGuessesArr);
+      setScore(score - 1);
+      setAnimations(SCORE_ANIMATIONS[score - 1]);
+      // scoreAlert(score - 1);
+      setModalVisible(true);
     }
     setGuesses(guessesArr);
   };
@@ -97,8 +131,12 @@ const Hangman = (props, navigation) => {
     if (wrongGuesses.size === 6) {
       setTimeout(() => {
         alertGameOver('You Lose');
-      }, 750);
+      }, 2750);
     }
+  };
+
+  const closeModal = () => {
+    setModalVisible(false);
   };
 
   const saveResult = (endState) => {
@@ -124,6 +162,10 @@ const Hangman = (props, navigation) => {
     } else {
       saveResult('wins');
     }
+
+    setWinmodalVisible(true);
+    // setAnimations(SCORE_ANIMATIONS[10]);
+
     Alert.alert(alertMessage, `${descr}Would you like to play again?`, [
       {text: 'No', onPress: () => goHome()},
       {text: 'Yes', onPress: () => restartGame()},
@@ -150,6 +192,13 @@ const Hangman = (props, navigation) => {
       word={word}
       wrongGuesses={wrongGuesses}
       guesses={guesses}
+      score={score}
+      modalVisible={modalVisible}
+      winModalVisible={winModalVisible}
+      closeModal={closeModal}
+      animations={animations}
+      goHome={goHome}
+      restartGame={restartGame}
     />
   );
 };

@@ -22,7 +22,8 @@ const OnePlayer = (props) => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    setWord(random().split(''));
+    // setWord(random().toUpperCase().split(''));
+    getRandomWord();
   }, []);
 
   const restartGame = () => {
@@ -31,7 +32,7 @@ const OnePlayer = (props) => {
   };
 
   const getRandomWord = () => {
-    setWord(random().split(''));
+    setWord(random().toUpperCase().split(''));
     setIsLoading(false);
   };
   return isLoading ? (

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   Text,
   View,
@@ -6,6 +6,8 @@ import {
   TouchableOpacity,
   ImageBackground,
   Dimensions,
+  Modal,
+  Pressable,
 } from 'react-native';
 import Button from './Button';
 import Gallows from './Gallows';
@@ -20,6 +22,7 @@ import {
 import LottieView from 'lottie-react-native';
 
 // Css
+
 const BannerExample = ({style, title, children, ...props}) => (
   <View {...props} style={[styles.example, style]}>
     <Text style={styles.title}>{title}</Text>
@@ -28,11 +31,43 @@ const BannerExample = ({style, title, children, ...props}) => (
 );
 
 const HangmanView = (props) => {
-  const _getResultMessage = () => {};
+  // console.log(props);
+  const onRelease = () => {
+    setTimeout(() => {
+      props.closeModal();
+    }, 2000);
+  };
+  // console.log(props);
   return (
     <ImageBackground
       // source={require('../../assets/images/gallow1.png')}
       style={styles.gallow}>
+      {props.modalVisible ? (
+        <Modal
+          animationType="fade"
+          transparent={true}
+          visible={props.modalVisible}>
+          <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+              <Text style={styles.scoreText}>MISTAKES LEFT: </Text>
+
+              <LottieView
+                autoPlay
+                loop={false}
+                source={props.animations.getJson()}
+                style={styles.animation}
+                enableMergePathsAndroidForKitKatAndAbove
+                onAnimationFinish={onRelease()}
+              />
+              {/* <Pressable
+              style={[styles.button, styles.buttonClose]}
+              onPress={props.closeModal}>
+              <Text style={styles.textStyle}>Hide Modal</Text>
+            </Pressable> */}
+            </View>
+          </View>
+        </Modal>
+      ) : null}
       <LottieView
         autoPlay
         loop={true}
@@ -53,6 +88,7 @@ const HangmanView = (props) => {
             style={styles.topButtons}
           />
         </View>
+
         {/* <Gallows {...props} /> */}
         <LetterToWord {...props} />
         <Keyboard {...props} />
@@ -88,6 +124,9 @@ const styles = StyleSheet.create({
     flex: 1,
     width: null,
     height: null,
+    marginBottom: 40,
+    // top: 1,
+    // position: 'relative',
   },
   example: {
     position: 'absolute',
@@ -97,6 +136,54 @@ const styles = StyleSheet.create({
     width: 100 + '%',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  scoreText: {
+    fontSize: 13,
+    textAlign: 'center',
+    fontWeight: '500',
+    justifyContent: 'flex-end',
+    width: '100%',
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 22,
+  },
+  modalView: {
+    margin: 20,
+    // backgroundColor: 'white',
+    borderRadius: 20,
+    padding: 35,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  button: {
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2,
+  },
+  buttonOpen: {
+    backgroundColor: '#F194FF',
+  },
+  buttonClose: {
+    backgroundColor: '#2196F3',
+  },
+  textStyle: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: 'center',
   },
 });
 export default HangmanView;

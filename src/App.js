@@ -31,7 +31,12 @@ import OnePlayer from './Hangman/Game/OnePlayer';
 import TwoPlayer from './Hangman/Game/TwoPlayers';
 import Geography from './Hangman/Game/Geography';
 import Persons from './Hangman/Game/Persons';
-
+import {
+  AdMobBanner,
+  AdMobInterstitial,
+  PublisherBanner,
+  AdMobRewarded,
+} from 'react-native-admob';
 const Stack = createStackNavigator();
 
 const App: () => React$Node = () => {
@@ -46,6 +51,16 @@ const App: () => React$Node = () => {
           <Stack.Screen name="Persons" component={Persons} />
         </Stack.Navigator>
       </NavigationContainer>
+      <AdMobBanner
+        adSize="fullBanner"
+        adUnitID={
+          Platform.OS === 'ios'
+            ? 'ca-app-pub-3940256099942544/2934735716'
+            : 'ca-app-pub-5713671504596281/1412113813'
+        }
+        onAdFailedToLoad={(error) => console.error(error)}
+        style={styles.ad}
+      />
     </>
   );
 };
@@ -86,6 +101,10 @@ const styles = StyleSheet.create({
     padding: 4,
     paddingRight: 12,
     textAlign: 'right',
+  },
+  ad: {
+    position: 'absolute',
+    bottom: 1,
   },
 });
 

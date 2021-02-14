@@ -13,7 +13,7 @@ const Button = ({disabled, text, handlePress, style}) => {
     },
     shadowRadius: 10,
     shadowOpacity: 0.25,
-    backgroundColor: disabled ? '#3ec6cd' : '#2E9298',
+    backgroundColor: disabled ? '#3ec6cd' : '#000',
   });
 
   return (

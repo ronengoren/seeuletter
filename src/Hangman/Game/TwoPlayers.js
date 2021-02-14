@@ -1,5 +1,11 @@
 import React, {useState, useEffect} from 'react';
-import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
+import {
+  Text,
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  ActivityIndicator,
+} from 'react-native';
 import {getRandomLoading} from '../../hangmanHelper';
 import Hangman from './Hangman';
 import Prompt from 'react-native-input-prompt';
@@ -7,6 +13,7 @@ import Prompt from 'react-native-input-prompt';
 // Css
 
 const TwoPlayer = (props) => {
+  // console.log(props);
   const [promptVisible, setPromptVisible] = useState(false);
   const [word, setWord] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -18,21 +25,23 @@ const TwoPlayer = (props) => {
   }, [props]);
 
   const restartGame = () => {
-    setWord('');
-    setPromptVisible(true);
     setIsLoading(true);
-    setTitle('Enter a word for a friend');
+    setPromptVisible(true);
+
+    // setWord('');
+    // setIsLoading(true);
+    // setTitle('Enter a word for a friend');
   };
 
   const handlePromptCancel = () => {
-    navigation.push('Home');
+    props.navigation.push('Home');
     setPromptVisible(false);
   };
 
-  handlePromptSubmit = (value) => {
+  const handlePromptSubmit = (value) => {
     const userWord = value
       .replace(/[^A-Za-z]/g, '')
-      .toLowerCase()
+      .toUpperCase()
       .split('');
     if (userWord.length > 13) {
       setTitle('Enter a shorter word');
@@ -55,13 +64,13 @@ const TwoPlayer = (props) => {
       ) : (
         <Hangman word={word} restartGame={restartGame} {...props} />
       )}
-      {/* <Prompt
+      <Prompt
         visible={promptVisible}
         title={title}
         placeholder="Use only letters, up to 13"
         onCancel={handlePromptCancel}
-        onSubmit={(value) => alert(value)}
-      /> */}
+        onSubmit={handlePromptSubmit}
+      />
     </View>
   );
 };

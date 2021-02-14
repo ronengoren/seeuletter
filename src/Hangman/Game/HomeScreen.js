@@ -9,6 +9,8 @@ import {
   Alert,
   Image,
   ImageBackground,
+  Dimensions,
+  SafeAreaView,
 } from 'react-native';
 import Prompt from 'react-native-input-prompt';
 import Button from './Button';
@@ -47,7 +49,7 @@ const HomeScreen = ({navigation}) => {
   };
   const handleGeographyNavigator = () => {
     navigation.push('Geography', {
-      itemId: Math.floor(Math.random() * 120),
+      itemId: Math.floor(Math.random() * 1320),
       navigation: navigation,
     });
   };
@@ -61,7 +63,7 @@ const HomeScreen = ({navigation}) => {
   const handlePromptSubmit = (value) => {
     const randomword = value
       .replace(/[^A-Za-z]/g, '')
-      .toLowerCase()
+      .toUpperCase()
       .split('');
     if (randomword.length > 13) {
       setTitle('Enter a shorter word');
@@ -85,23 +87,23 @@ const HomeScreen = ({navigation}) => {
     <ImageBackground
       // source={require('../../assets/images/gallow7.png')}
       style={styles.gallow}>
-      <LottieView
-        autoPlay
-        loop={true}
-        source={require('../../assets/animations/homeBackground.json')}
-        style={styles.animation}
-        enableMergePathsAndroidForKitKatAndAbove
-      />
-      <View style={styles.manWrapper}>
-        {/* <Image
-          source={require('../../assets/images/man72.png')}
-          style={styles.man}
-        /> */}
-      </View>
+      {/* <View style={styles.manWrapper}></View> */}
       <View style={styles.home}>
-        <Text style={styles.header}>SEE YOU LETTER</Text>
-        <Text>Total Wins: {wins}</Text>
-        <Text style={styles.score}>Win percentage: {percentage}%</Text>
+        <Image
+          source={require('../../assets/images/logo.png')}
+          style={styles.seeuletter}
+        />
+        <LottieView
+          autoPlay
+          loop={true}
+          source={require('../../assets/animations/homeBackground.json')}
+          style={styles.animation}
+          enableMergePathsAndroidForKitKatAndAbove
+        />
+
+        {/* <Text style={styles.header}>SEE YOU LETTER</Text> */}
+        <Text>YOU WON {wins} TIMES!</Text>
+        <Text style={styles.score}>YOUR AVERGAE WINNING {percentage}%</Text>
         <Button
           style={styles.button}
           text="1 PLAYER"
@@ -159,16 +161,26 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   header: {
-    fontSize: 40,
-    bottom: 20,
-    fontStyle: 'italic',
-    color: '#343434',
-    shadowColor: '#000',
+    flex: 1,
+    width: Dimensions.get('screen').width,
+    height: Dimensions.get('window').height / 4,
+    justifyContent: 'center',
+    alignItems: 'center',
+    // fontSize: 40,
+    // top: 20,
+    // fontStyle: 'italic',
+    // color: '#343434',
+    // shadowColor: '#000',
   },
   button: {
     height: 45,
     width: 200,
     margin: 10,
+  },
+  seeuletter: {
+    height: 100,
+    width: 300,
+    // margin: 10,
   },
   score: {
     marginBottom: 20,

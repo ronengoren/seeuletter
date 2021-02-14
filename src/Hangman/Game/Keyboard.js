@@ -20,19 +20,24 @@ const keysRows = [
 ];
 const Keyboard = (props) => {
   const handlePress = (letter, disabled) => () => {
-    if (!disabled) props.handleLetterPress(letter.toLowerCase());
+    if (!disabled) props.handleLetterPress(letter);
   };
 
-  const getButton = (letter) => {
+  const getButton = (letter, index) => {
     const disabled = props.guesses.includes(letter);
-    return (
-      <Button
-        key={letter}
-        text={letter}
-        handlePress={handlePress(letter.toLowerCase(), disabled)}
-        disabled={disabled}
-      />
-    );
+
+    if (letter == ' ') {
+      return <Text key={index}> </Text>;
+    } else {
+      return (
+        <Button
+          key={letter}
+          text={letter}
+          handlePress={handlePress(letter, disabled)}
+          disabled={disabled}
+        />
+      );
+    }
   };
 
   const getRow = (row) => (
@@ -41,12 +46,12 @@ const Keyboard = (props) => {
     </View>
   );
 
-  return (
-    <View style={styles.keyboard}>
-      {[ROW_ONE, ROW_TWO, ROW_THREE].map(getRow)}
-    </View>
-  );
+  return <View style={styles.keyboard}>{keysRows.map(getRow)}</View>;
 };
+
+{
+  /* {[ROW_ONE, ROW_TWO, ROW_THREE].map(getRow)} */
+}
 
 export default Keyboard;
 
@@ -57,5 +62,38 @@ const styles = StyleSheet.create({
   letterRow: {
     flexDirection: 'row',
     justifyContent: 'center',
+  },
+  keyboard: {
+    flex: 1,
+    // backgroundColor: '#fff',
+    justifyContent: 'center',
+    flexDirection: 'column',
+  },
+  keyboardRow: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  keyItem: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 15,
+    margin: 2,
+  },
+  usedKey: {
+    color: 'grey',
+    fontSize: 20,
+    width: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  letter: {
+    color: 'black',
+    fontSize: 20,
+    width: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

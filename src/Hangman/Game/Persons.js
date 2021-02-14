@@ -24,18 +24,16 @@ const Persons = (props) => {
   const [lettersLeftArray, setLettersLeftArray] = useState([]);
 
   useEffect(() => {
-    dashedWord(word);
+    getRandomWord();
   }, []);
 
-  const dashedWord = (word) => {
-    let puzzles = new Puzzles();
-
+  const dashedWord = (puzzles) => {
     let puzzle = puzzles.getRandom();
     let answer = puzzle.answer
-      .toLowerCase()
+      .toUpperCase()
       .replace(/[^a-zA-Z]/gim, ' ')
       .trim();
-    let lettersLeft = Array(word.length);
+    let lettersLeft = Array(answer.length);
     for (let i = 0; i < answer.length; i++) {
       lettersLeft[i] = answer[i] == ' ' ? '*' : answer[i];
     }
@@ -47,7 +45,9 @@ const Persons = (props) => {
   };
 
   const getRandomWord = () => {
-    dashedWord(word);
+    let puzzles = new Puzzles();
+
+    dashedWord(puzzles);
     setIsLoading(false);
   };
   return isLoading ? (
