@@ -17,7 +17,7 @@ import words from './words';
 import {Puzzles} from './puzzles/Geography/index';
 
 const Geography = (props) => {
-  // console.log(props);
+  // console.log(props.route.name);
   const [word, setWord] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [lettersLeftArray, setLettersLeftArray] = useState([]);

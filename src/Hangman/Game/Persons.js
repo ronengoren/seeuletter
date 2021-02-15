@@ -19,6 +19,8 @@ import {Puzzles} from './puzzles/Persons/index';
 const random = () => words[Math.floor(Math.random() * words.length)];
 
 const Persons = (props) => {
+  // console.log(props.route.name);
+
   const [word, setWord] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [lettersLeftArray, setLettersLeftArray] = useState([]);

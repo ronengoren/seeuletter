@@ -18,6 +18,7 @@ import words from './words';
 const random = () => words[Math.floor(Math.random() * words.length)];
 
 const OnePlayer = (props) => {
+  // console.log(props.route.name);
   const [word, setWord] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 

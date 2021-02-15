@@ -62,9 +62,11 @@ const HomeScreen = ({navigation}) => {
 
   const handlePromptSubmit = (value) => {
     const randomword = value
-      .replace(/[^A-Za-z]/g, '')
+      .replace(/(\s)/g, '*')
+      // .replace(/[^A-Za-z]/g, '')
       .toUpperCase()
       .split('');
+
     if (randomword.length > 13) {
       setTitle('Enter a shorter word');
     } else if (randomword.length < 2) {

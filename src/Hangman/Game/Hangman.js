@@ -53,10 +53,24 @@ const Hangman = (props, navigation) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [winModalVisible, setWinmodalVisible] = useState(false);
   const [animations, setAnimations] = useState(SCORE_ANIMATIONS[0]);
+  const [routeName, setRouteName] = useState('');
   // console.log(animations.getJson());
   useEffect(() => {
     setWord(props.word);
+    getRouteName();
   });
+
+  const getRouteName = () => {
+    if (props.route.name == 'OnePlayer') {
+      setRouteName('RANDOM WORD');
+    } else if (props.route.name == 'TwoPlayers') {
+      setRouteName('TRY TO GUESS YOUR FRIEND WORD');
+    } else if (props.route.name == 'Geography') {
+      setRouteName('GEOGRAPHY');
+    } else {
+      setRouteName('FAMOUS PERSON');
+    }
+  };
 
   const getHangingMan = () => {
     const images = {
@@ -199,6 +213,7 @@ const Hangman = (props, navigation) => {
       animations={animations}
       goHome={goHome}
       restartGame={restartGame}
+      header={routeName}
     />
   );
 };

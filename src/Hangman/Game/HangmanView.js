@@ -31,7 +31,7 @@ const BannerExample = ({style, title, children, ...props}) => (
 );
 
 const HangmanView = (props) => {
-  // console.log(props);
+  // console.log(props.header);
   const onRelease = () => {
     setTimeout(() => {
       props.closeModal();
@@ -49,8 +49,6 @@ const HangmanView = (props) => {
           visible={props.modalVisible}>
           <View style={styles.centeredView}>
             <View style={styles.modalView}>
-              <Text style={styles.scoreText}>MISTAKES LEFT: </Text>
-
               <LottieView
                 autoPlay
                 loop={false}
@@ -59,11 +57,7 @@ const HangmanView = (props) => {
                 enableMergePathsAndroidForKitKatAndAbove
                 onAnimationFinish={onRelease()}
               />
-              {/* <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={props.closeModal}>
-              <Text style={styles.textStyle}>Hide Modal</Text>
-            </Pressable> */}
+              <Text style={styles.scoreText}>MISTAKES LEFT...</Text>
             </View>
           </View>
         </Modal>
@@ -76,6 +70,8 @@ const HangmanView = (props) => {
         enableMergePathsAndroidForKitKatAndAbove
       />
       <View style={styles.container}>
+        <Text style={styles.gameTitle}>{props.header}</Text>
+
         <View style={styles.top}>
           <Button
             text="Home"
@@ -88,7 +84,6 @@ const HangmanView = (props) => {
             style={styles.topButtons}
           />
         </View>
-
         {/* <Gallows {...props} /> */}
         <LetterToWord {...props} />
         <Keyboard {...props} />
@@ -183,6 +178,14 @@ const styles = StyleSheet.create({
   },
   modalText: {
     marginBottom: 15,
+    textAlign: 'center',
+  },
+  gameTitle: {
+    // flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
+    fontWeight: 'bold',
     textAlign: 'center',
   },
 });

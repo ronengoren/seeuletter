@@ -13,7 +13,7 @@ import Prompt from 'react-native-input-prompt';
 // Css
 
 const TwoPlayer = (props) => {
-  // console.log(props);
+  // console.log(props.route.name);
   const [promptVisible, setPromptVisible] = useState(false);
   const [word, setWord] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -40,7 +40,9 @@ const TwoPlayer = (props) => {
 
   const handlePromptSubmit = (value) => {
     const userWord = value
-      .replace(/[^A-Za-z]/g, '')
+      // .replace(/[^A-Za-z]/g, '')
+      .replace(/(\s)/g, '*')
+
       .toUpperCase()
       .split('');
     if (userWord.length > 13) {

@@ -51,7 +51,7 @@ const App: () => React$Node = () => {
           <Stack.Screen name="Persons" component={Persons} />
         </Stack.Navigator>
       </NavigationContainer>
-      <AdMobBanner
+      {/* <AdMobBanner
         adSize="fullBanner"
         adUnitID={
           Platform.OS === 'ios'
@@ -60,7 +60,7 @@ const App: () => React$Node = () => {
         }
         onAdFailedToLoad={(error) => console.error(error)}
         style={styles.ad}
-      />
+      /> */}
     </>
   );
 };
