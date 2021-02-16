@@ -31,6 +31,8 @@ import OnePlayer from './Hangman/Game/OnePlayer';
 import TwoPlayer from './Hangman/Game/TwoPlayers';
 import Geography from './Hangman/Game/Geography';
 import Persons from './Hangman/Game/Persons';
+import FlagQuiz from './Hangman/Game/FlagQuiz';
+
 import {
   AdMobBanner,
   AdMobInterstitial,
@@ -49,9 +51,10 @@ const App: () => React$Node = () => {
           <Stack.Screen name="TwoPlayers" component={TwoPlayer} />
           <Stack.Screen name="Geography" component={Geography} />
           <Stack.Screen name="Persons" component={Persons} />
+          <Stack.Screen name="FlagQuiz" component={FlagQuiz} />
         </Stack.Navigator>
       </NavigationContainer>
-      {/* <AdMobBanner
+      <AdMobBanner
         adSize="fullBanner"
         adUnitID={
           Platform.OS === 'ios'
@@ -60,7 +63,7 @@ const App: () => React$Node = () => {
         }
         onAdFailedToLoad={(error) => console.error(error)}
         style={styles.ad}
-      /> */}
+      />
     </>
   );
 };

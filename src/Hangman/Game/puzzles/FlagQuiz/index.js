@@ -1,11 +1,10 @@
-import {Persons} from './persons';
-import {Cities} from './cities';
+import {FlagQuiz} from './flagQuiz';
 
 export function Puzzles() {
   this.collection = this.fetch();
 }
 Puzzles.prototype.fetch = function () {
-  return Cities;
+  return FlagQuiz;
 };
 Puzzles.prototype.getRandom = function () {
   let randomIndex = Math.floor(Math.random() * (this.collection.length - 1));

@@ -1,5 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import {Text, View, Image, StyleSheet, ImageBackground} from 'react-native';
+import {
+  Text,
+  View,
+  Image,
+  StyleSheet,
+  ImageBackground,
+  Dimensions,
+} from 'react-native';
 
 const LetterToWord = (props) => {
   // console.log(props.word);
@@ -43,10 +50,12 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'center',
-    marginTop: 25,
-    marginBottom: 15,
+    // marginTop: 25,
+    // marginBottom: 15,
   },
   letterView: {
+    width: Dimensions.get('window').width / 2.2,
+    // height: 150,
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
@@ -56,7 +65,7 @@ const styles = StyleSheet.create({
     color: 'green',
   },
   letter: {
-    fontSize: 23,
+    fontSize: 20,
   },
   dashes: {
     flex: 1,
@@ -66,20 +75,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flexWrap: 'wrap',
   },
-  dashItemContainer: {
-    flex: 0,
-    padding: 5,
-    margin: 2,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  dashItem: {
-    width: 20,
-    color: '#841584',
-    fontSize: 20,
-    borderBottomWidth: 1,
-    borderBottomColor: 'black',
-  },
+
   dashBlankItem: {
     width: 20,
     fontSize: 20,

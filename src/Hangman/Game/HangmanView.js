@@ -20,8 +20,9 @@ import {
   PublisherBanner,
 } from 'react-native-admob';
 import LottieView from 'lottie-react-native';
-
 // Css
+import {SvgUri, SvgCssUri} from 'react-native-svg';
+import SVGImage from 'react-native-svg-image';
 
 const BannerExample = ({style, title, children, ...props}) => (
   <View {...props} style={[styles.example, style]}>
@@ -31,7 +32,6 @@ const BannerExample = ({style, title, children, ...props}) => (
 );
 
 const HangmanView = (props) => {
-  // console.log(props.header);
   const onRelease = () => {
     setTimeout(() => {
       props.closeModal();
@@ -69,6 +69,7 @@ const HangmanView = (props) => {
         style={styles.animation}
         enableMergePathsAndroidForKitKatAndAbove
       />
+
       <View style={styles.container}>
         <Text style={styles.gameTitle}>{props.header}</Text>
 
@@ -84,8 +85,19 @@ const HangmanView = (props) => {
             style={styles.topButtons}
           />
         </View>
+        {/* <View style={styles.flagCenteredView}> */}
+        <SVGImage
+          style={styles.tinyLogo}
+          // resizeMethod={'stretch'}
+          // resizeMode={'stretch'}
+          source={{
+            uri: props.flag,
+          }}
+        />
+        {/* </View> */}
         {/* <Gallows {...props} /> */}
         <LetterToWord {...props} />
+
         <Keyboard {...props} />
         {/* <BannerExample>
         <AdMobBanner
@@ -102,8 +114,8 @@ const HangmanView = (props) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    // backgroundColor: '#fff',
+    flex: 5,
+    backgroundColor: '#fff',
   },
   top: {
     flex: 1,
@@ -119,7 +131,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: null,
     height: null,
-    marginBottom: 40,
+    marginBottom: 80,
     // top: 1,
     // position: 'relative',
   },
@@ -145,6 +157,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 22,
   },
+  flagCenteredView: {
+    flex: 1,
+    justifyContent: 'center',
+    // marginTop: 22,
+
+    // backgroundColor: 'pink',
+  },
+
   modalView: {
     margin: 20,
     // backgroundColor: 'white',
@@ -187,6 +207,27 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontWeight: 'bold',
     textAlign: 'center',
+  },
+  tinyLogo: {
+    height: Dimensions.get('screen').height / 12,
+
+    alignItems: 'center',
+    // flex: 1,
+    justifyContent: 'center',
+
+    // margin: 20,
+    // backgroundColor: 'white',
+    borderRadius: 20,
+    // padding: 35,
+    // alignItems: 'center',
+    // shadowColor: '#000',
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 2,
+    // },
+    // shadowOpacity: 0.25,
+    // shadowRadius: 4,
+    // elevation: 5,
   },
 });
 export default HangmanView;

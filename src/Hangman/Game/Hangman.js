@@ -54,9 +54,12 @@ const Hangman = (props, navigation) => {
   const [winModalVisible, setWinmodalVisible] = useState(false);
   const [animations, setAnimations] = useState(SCORE_ANIMATIONS[0]);
   const [routeName, setRouteName] = useState('');
+  const [flagUrl, setFlagUrl] = useState('');
+
   // console.log(animations.getJson());
   useEffect(() => {
     setWord(props.word);
+    setFlagUrl(props.flag);
     getRouteName();
   });
 
@@ -67,8 +70,10 @@ const Hangman = (props, navigation) => {
       setRouteName('TRY TO GUESS YOUR FRIEND WORD');
     } else if (props.route.name == 'Geography') {
       setRouteName('GEOGRAPHY');
-    } else {
+    } else if (props.route.name == 'Persons') {
       setRouteName('FAMOUS PERSON');
+    } else {
+      setRouteName('CAN YOU GUESS THE COUNTRY FROM THE FLAG?');
     }
   };
 
@@ -214,6 +219,7 @@ const Hangman = (props, navigation) => {
       goHome={goHome}
       restartGame={restartGame}
       header={routeName}
+      flag={flagUrl}
     />
   );
 };

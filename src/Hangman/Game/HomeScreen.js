@@ -60,6 +60,13 @@ const HomeScreen = ({navigation}) => {
     });
   };
 
+  const handleFlagQuizNavigator = () => {
+    navigation.push('FlagQuiz', {
+      itemId: Math.floor(Math.random() * 120),
+      navigation: navigation,
+    });
+  };
+
   const handlePromptSubmit = (value) => {
     const randomword = value
       .replace(/(\s)/g, '*')
@@ -127,6 +134,12 @@ const HomeScreen = ({navigation}) => {
           style={styles.button}
           text="PERSONS"
           handlePress={handlePersonsNavigator}
+          color="#fff"
+        />
+        <Button
+          style={styles.button}
+          text="FLAG QUIZ"
+          handlePress={handleFlagQuizNavigator}
           color="#fff"
         />
         <Prompt
