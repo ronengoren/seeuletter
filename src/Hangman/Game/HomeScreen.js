@@ -102,6 +102,8 @@ const HomeScreen = ({navigation}) => {
           source={require('../../assets/images/logo.png')}
           style={styles.seeuletter}
         />
+        <Text>YOU WON {wins} TIMES!</Text>
+        <Text style={styles.score}>YOUR AVERGAE WINNING {percentage}%</Text>
         <LottieView
           autoPlay
           loop={true}
@@ -110,9 +112,6 @@ const HomeScreen = ({navigation}) => {
           enableMergePathsAndroidForKitKatAndAbove
         />
 
-        {/* <Text style={styles.header}>SEE YOU LETTER</Text> */}
-        <Text>YOU WON {wins} TIMES!</Text>
-        <Text style={styles.score}>YOUR AVERGAE WINNING {percentage}%</Text>
         <Button
           style={styles.button}
           text="1 PLAYER"
@@ -172,7 +171,8 @@ const styles = StyleSheet.create({
   },
   home: {
     flex: 14,
-    justifyContent: 'center',
+    margin: 10,
+    // justifyContent: 'flex-start',
     alignItems: 'center',
   },
   header: {
@@ -188,14 +188,16 @@ const styles = StyleSheet.create({
     // shadowColor: '#000',
   },
   button: {
-    height: 45,
+    height: 40,
     width: 200,
-    margin: 10,
+    margin: 1,
+    // top: 1,
+    // bottom: 35,
   },
   seeuletter: {
     height: 100,
-    width: 300,
-    // margin: 10,
+    width: 250,
+    marginTop: 40,
   },
   score: {
     marginBottom: 20,
@@ -206,7 +208,7 @@ const styles = StyleSheet.create({
     padding: 3,
   },
   animation: {
-    width: 100 + '%',
+    width: 75 + '%',
     alignItems: 'center',
     justifyContent: 'center',
   },

@@ -9,15 +9,14 @@
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* heymanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* heymanTests.m */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
-		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
-		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* heymanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* heymanTests.m */; };
 		3DB3FA53099EB0A3B29FF1F6 /* libPods-heyman.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8033510A84EC976A3A03B6B5 /* libPods-heyman.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		85414DF11D88BDCA96421D4B /* libPods-heyman-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD20E42E9DD5AECAD2B95715 /* libPods-heyman-tvOS.a */; };
+		947DF20D25DC1EBD0073529E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 947DF20C25DC1EBD0073529E /* Assets.xcassets */; };
 		DF5B4CEE247F9EA9006257B0 /* libPods-heyman-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39FACBAF10753F3EF5710F22 /* libPods-heyman-tvOSTests.a */; };
 		F4F36C35996861F10A258853 /* libPods-heyman-heymanTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 982C4F8B18F0D7D90C70778D /* libPods-heyman-heymanTests.a */; };
 /* End PBXBuildFile section */
@@ -48,7 +47,6 @@
 		13B07F961A680F5B00A75B9A /* heyman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = heyman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = heyman/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = heyman/AppDelegate.m; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = heyman/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = heyman/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = heyman/main.m; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* heyman-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "heyman-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +58,7 @@
 		7CAB4A3354D5902DBCFF0314 /* Pods-heyman-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-heyman-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-heyman-tvOS/Pods-heyman-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		8033510A84EC976A3A03B6B5 /* libPods-heyman.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-heyman.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = heyman/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		947DF20C25DC1EBD0073529E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		982C4F8B18F0D7D90C70778D /* libPods-heyman-heymanTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-heyman-heymanTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6FD4A2F6392558DB1E038E8 /* Pods-heyman-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-heyman-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-heyman-tvOSTests/Pods-heyman-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C6FC2EA51487EE4EA4A57229 /* Pods-heyman-heymanTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-heyman-heymanTests.release.xcconfig"; path = "Target Support Files/Pods-heyman-heymanTests/Pods-heyman-heymanTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -128,7 +127,7 @@
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
-				13B07FB51A68108700A75B9A /* Images.xcassets */,
+				947DF20C25DC1EBD0073529E /* Assets.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
@@ -341,7 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
-				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				947DF20D25DC1EBD0073529E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,7 +348,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -662,6 +660,7 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = heyman/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.4;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -687,6 +686,7 @@
 				DEVELOPMENT_TEAM = LNN269VGPG;
 				INFOPLIST_FILE = heyman/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 1.4;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: null,
     height: null,
-    marginBottom: 80,
+    marginBottom: 100,
     // top: 1,
     // position: 'relative',
   },
@@ -209,7 +209,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   tinyLogo: {
-    height: Dimensions.get('screen').height / 12,
+    height: Dimensions.get('window').height / 13,
 
     alignItems: 'center',
     // flex: 1,

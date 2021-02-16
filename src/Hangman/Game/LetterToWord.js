@@ -60,12 +60,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderBottomWidth: 2,
-    marginLeft: 2,
-    marginRight: 2,
+    marginLeft: 1.4,
+    marginRight: 1.4,
     color: 'green',
   },
   letter: {
-    fontSize: 20,
+    fontSize: 15,
   },
   dashes: {
     flex: 1,
