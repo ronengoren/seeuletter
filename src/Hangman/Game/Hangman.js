@@ -93,9 +93,8 @@ const Hangman = (props, navigation) => {
   showModalAd = () => {
     AdMobInterstitial.requestAd()
       .then(() => {
-        receiveHint();
-
         AdMobInterstitial.showAd();
+        receiveHint();
       })
       .catch((err) => {
         receiveHint();
@@ -161,6 +160,7 @@ const Hangman = (props, navigation) => {
   const saveResult = (endState) => {
     getItem(endState).then((item) => {
       const value = `${parseInt(item, 10) + 1}`;
+
       AsyncStorage.setItem(endState, value);
     });
   };
@@ -199,7 +199,7 @@ const Hangman = (props, navigation) => {
     );
   };
   const goHome = () => {
-    props.navigation.navigate('Home');
+    props.navigation.push('Home');
   };
 
   return (

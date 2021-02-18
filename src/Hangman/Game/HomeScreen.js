@@ -35,10 +35,11 @@ const HomeScreen = ({navigation}) => {
         setPercentage(percentage);
       });
     });
-  }, []);
+  }, [wins]);
 
   const getItem = async (item) => {
     const value = await AsyncStorage.getItem(item);
+
     return value;
   };
   const handleNavigator = () => {

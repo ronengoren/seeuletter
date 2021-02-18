@@ -55,10 +55,10 @@ const App: () => React$Node = () => {
         </Stack.Navigator>
       </NavigationContainer>
       <AdMobBanner
-        adSize="fullBanner"
+        adSize="smartBannerPortrait"
         adUnitID={
           Platform.OS === 'ios'
-            ? 'ca-app-pub-3940256099942544/2934735716'
+            ? 'ca-app-pub-5713671504596281/6117645587'
             : 'ca-app-pub-5713671504596281/1412113813'
         }
         onAdFailedToLoad={(error) => console.error(error)}
@@ -108,6 +108,7 @@ const styles = StyleSheet.create({
   ad: {
     position: 'absolute',
     bottom: 1,
+    backgroundColor: '#fff',
   },
 });
 
