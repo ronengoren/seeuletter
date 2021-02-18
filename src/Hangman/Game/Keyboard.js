@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   keyboard: {
-    flex: 1,
+    // flex: 1,
     // backgroundColor: '#fff',
     justifyContent: 'center',
     flexDirection: 'column',

@@ -35,10 +35,11 @@ const HomeScreen = ({navigation}) => {
         setPercentage(percentage);
       });
     });
-  }, []);
+  }, [wins]);
 
   const getItem = async (item) => {
     const value = await AsyncStorage.getItem(item);
+
     return value;
   };
   const handleNavigator = () => {
@@ -103,7 +104,7 @@ const HomeScreen = ({navigation}) => {
           style={styles.seeuletter}
         />
         <Text>YOU WON {wins} TIMES!</Text>
-        <Text style={styles.score}>YOUR AVERGAE WINNING {percentage}%</Text>
+        <Text style={styles.score}>YOUR AVERAGE WINNING {percentage}%</Text>
         <LottieView
           autoPlay
           loop={true}
@@ -131,7 +132,7 @@ const HomeScreen = ({navigation}) => {
         />
         <Button
           style={styles.button}
-          text="PERSONS"
+          text="PERSON"
           handlePress={handlePersonsNavigator}
           color="#fff"
         />

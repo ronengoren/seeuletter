@@ -9,7 +9,6 @@ import {
 } from 'react-native';
 
 const LetterToWord = (props) => {
-  // console.log(props.word);
   const [guesses, setGuesses] = useState(props.guesses);
   const getWordSlot = (letter, i) => {
     let contents = props.guesses.includes(letter) ? letter : ' ';
@@ -47,25 +46,31 @@ export default LetterToWord;
 
 const styles = StyleSheet.create({
   lowerMiddle: {
-    flex: 1,
-    flexDirection: 'row',
     justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    // marginBottom: 20,
+    padding: 3,
+    // flex: 1,
+    // flexDirection: 'row',
+    // justifyContent: 'center',
     // marginTop: 25,
     // marginBottom: 15,
   },
   letterView: {
-    width: Dimensions.get('window').width / 2.2,
+    width: Dimensions.get('window').width / 27,
     // height: 150,
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    // flex: 1,
+    // alignItems: 'center',
+    // justifyContent: 'center',
     borderBottomWidth: 2,
-    marginLeft: 1.4,
-    marginRight: 1.4,
-    color: 'green',
+    marginLeft: 1,
+    marginRight: 1,
+    // color: 'green',
   },
   letter: {
-    fontSize: 15,
+    fontSize: 17,
   },
   dashes: {
     flex: 1,

@@ -8,28 +8,16 @@ import {
   Dimensions,
   Modal,
   Pressable,
+  SafeAreaView,
 } from 'react-native';
 import Button from './Button';
 import Gallows from './Gallows';
 import LetterToWord from './LetterToWord';
 import Keyboard from './Keyboard';
-import {
-  AdMobBanner,
-  AdMobInterstitial,
-  AdMobRewarded,
-  PublisherBanner,
-} from 'react-native-admob';
 import LottieView from 'lottie-react-native';
 // Css
 import {SvgUri, SvgCssUri} from 'react-native-svg';
 import SVGImage from 'react-native-svg-image';
-
-const BannerExample = ({style, title, children, ...props}) => (
-  <View {...props} style={[styles.example, style]}>
-    <Text style={styles.title}>{title}</Text>
-    <View>{children}</View>
-  </View>
-);
 
 const HangmanView = (props) => {
   const onRelease = () => {
@@ -42,38 +30,53 @@ const HangmanView = (props) => {
     <ImageBackground
       // source={require('../../assets/images/gallow1.png')}
       style={styles.gallow}>
-      {props.modalVisible ? (
-        <Modal
-          animationType="fade"
-          transparent={true}
-          visible={props.modalVisible}>
-          <View style={styles.centeredView}>
-            <View style={styles.modalView}>
-              <LottieView
-                autoPlay
-                loop={false}
-                source={props.animations.getJson()}
-                style={styles.animation}
-                enableMergePathsAndroidForKitKatAndAbove
-                onAnimationFinish={onRelease()}
-              />
-              <Text style={styles.scoreText}>MISTAKES LEFT...</Text>
+      <SafeAreaView style={styles.container}>
+        {props.modalVisible ? (
+          <Modal
+            animationType="fade"
+            transparent={true}
+            visible={props.modalVisible}>
+            <View style={styles.centeredView}>
+              <View style={styles.modalView}>
+                <LottieView
+                  autoPlay
+                  loop={false}
+                  source={props.animations.getJson()}
+                  style={styles.animation}
+                  enableMergePathsAndroidForKitKatAndAbove
+                  onAnimationFinish={onRelease()}
+                />
+                <Text style={styles.scoreText}>MISTAKES LEFT...</Text>
+              </View>
             </View>
-          </View>
-        </Modal>
-      ) : null}
-      <LottieView
-        autoPlay
-        loop={true}
-        source={require('../../assets/animations/homeBackground.json')}
-        style={styles.animation}
-        enableMergePathsAndroidForKitKatAndAbove
-      />
+          </Modal>
+        ) : null}
 
-      <View style={styles.container}>
         <Text style={styles.gameTitle}>{props.header}</Text>
 
         <View style={styles.top}>
+          <View style={styles.flagCenteredView}>
+            {props.flag ? (
+              <SVGImage
+                style={styles.tinyLogo}
+                // resizeMethod={'stretch'}
+                // resizeMode={'stretch'}
+                source={{
+                  uri: props.flag,
+                }}
+              />
+            ) : (
+              <LottieView
+                autoPlay
+                loop={true}
+                source={require('../../assets/animations/homeBackground.json')}
+                style={styles.animation}
+                enableMergePathsAndroidForKitKatAndAbove
+              />
+            )}
+          </View>
+        </View>
+        <View style={styles.top1}>
           <Button
             text="Home"
             handlePress={props.alertHome}
@@ -85,29 +88,12 @@ const HangmanView = (props) => {
             style={styles.topButtons}
           />
         </View>
-        {/* <View style={styles.flagCenteredView}> */}
-        <SVGImage
-          style={styles.tinyLogo}
-          // resizeMethod={'stretch'}
-          // resizeMode={'stretch'}
-          source={{
-            uri: props.flag,
-          }}
-        />
-        {/* </View> */}
+
         {/* <Gallows {...props} /> */}
         <LetterToWord {...props} />
 
         <Keyboard {...props} />
-        {/* <BannerExample>
-        <AdMobBanner
-          adSize="smartBannerPortrait"
-          // adUnitID="ca-app-pub-5713671504596281/6322566273"
-          adUnitID="ca-app-pub-3940256099942544/6300978111"
-          // ref={(el) => (this._smartBannerExample = el)}
-        />
-      </BannerExample> */}
-      </View>
+      </SafeAreaView>
     </ImageBackground>
   );
 };
@@ -119,9 +105,16 @@ const styles = StyleSheet.create({
   },
   top: {
     flex: 1,
+    // flexDirection: 'row',
+    justifyContent: 'center',
+    // paddingTop: 15,
+  },
+  top1: {
+    flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-around',
-    paddingTop: 20,
+
+    // paddingTop: 15,
   },
   topButtons: {
     height: 45,
@@ -158,11 +151,34 @@ const styles = StyleSheet.create({
     marginTop: 22,
   },
   flagCenteredView: {
+    // width: Dimensions.get('window').width,
     flex: 1,
     justifyContent: 'center',
+    alignItems: 'center',
+
     // marginTop: 22,
 
     // backgroundColor: 'pink',
+  },
+  tinyLogo: {
+    height: Dimensions.get('window').height / 7,
+    width: Dimensions.get('window').width / 2,
+    alignItems: 'center',
+    // flex: 1,
+    justifyContent: 'center',
+    // padding: 20,
+    // backgroundColor: 'white',
+    // borderRadius: 20,
+    // padding: 35,
+    // alignItems: 'center',
+    // shadowColor: '#000',
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 2,
+    // },
+    // shadowOpacity: 0.25,
+    // shadowRadius: 4,
+    // elevation: 5,
   },
 
   modalView: {
@@ -171,14 +187,14 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 35,
     alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
+    // shadowColor: '#000',
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 2,
+    // },
+    // shadowOpacity: 0.25,
+    // shadowRadius: 4,
+    // elevation: 5,
   },
   button: {
     borderRadius: 20,
@@ -206,28 +222,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     textAlign: 'center',
     fontWeight: 'bold',
-    textAlign: 'center',
-  },
-  tinyLogo: {
-    height: Dimensions.get('window').height / 13,
-
-    alignItems: 'center',
-    // flex: 1,
-    justifyContent: 'center',
-
-    // margin: 20,
-    // backgroundColor: 'white',
-    borderRadius: 20,
-    // padding: 35,
-    // alignItems: 'center',
-    // shadowColor: '#000',
-    // shadowOffset: {
-    //   width: 0,
-    //   height: 2,
-    // },
-    // shadowOpacity: 0.25,
-    // shadowRadius: 4,
-    // elevation: 5,
+    marginBottom: 20,
+    padding: 10,
+    fontSize: 20,
   },
 });
 export default HangmanView;
