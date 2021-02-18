@@ -153,20 +153,20 @@ const styles = StyleSheet.create({
   flagCenteredView: {
     // width: Dimensions.get('window').width,
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    // justifyContent: 'center',
+    // alignItems: 'center',
 
     // marginTop: 22,
 
     // backgroundColor: 'pink',
   },
   tinyLogo: {
-    height: Dimensions.get('window').height / 7,
-    width: Dimensions.get('window').width / 2,
-    alignItems: 'center',
+    height: Dimensions.get('window').height / 5,
+    // width: Dimensions.get('window').width,
+    // alignItems: 'center',
     // flex: 1,
-    justifyContent: 'center',
-    // padding: 20,
+    // justifyContent: 'center',
+    // margin: 20,
     // backgroundColor: 'white',
     // borderRadius: 20,
     // padding: 35,
